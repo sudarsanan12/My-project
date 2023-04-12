@@ -1,0 +1,122 @@
+{% load static %}
+<html>
+    <head>
+        <title>Upload a post</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="{% static 'style/style.css' %}" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="{% static 'js/jquery-1.3.2.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/cufon-yui.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/arial.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/cuf_run.js' %}"></script>
+        </head>
+<body>
+    {% block content %}
+        {% endblock content %}
+        {%  if user.is_authenticated %}
+            <p style="color: red;">You are logged in as <b>"{{ request.user }}"</b> Click here to <a href="logout" style="background-color: greenyellow; border-radius: 5px; border: 2px solid blue; box-shadow: 2px 2px 5px;">log out</a></p>
+             <!--header section start -->
+             <div class="clr"></div>
+      </div>
+      <div class="clr"></div>
+      <div class="menu_nav">
+        <ul>
+          <li class="active"><a href="index">Home</a></li>
+          <li><a href="/upload">Upload a post</a></li>
+          
+        </ul>
+        <div class="clr"></div>
+      </div>
+    </div>
+   
+             
+<form action="upload" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <label>Title :</label>
+          <input type="text" name="title" required>
+          <br><br>
+          <label> Image : </label>
+          <input type="file" name="image" required>
+          <br><br>
+          <label>Type something about your post</label>
+          <textarea name="description" required></textarea>
+          <br>
+          {% for n in tag %}
+          <p>tag users :{{ n.tag }}</p>
+          {% endfor %}
+          <br>
+          <input id="btn" type="submit" value="Upload" required>
+          <br><h3 style="color: rgb(15, 221, 15);">{{ success }}</h3>
+        </div>
+      </div>
+      </div>
+        
+        
+    </form>
+
+    {% else %}
+            <a href="login"> Log in Please.....</a>
+    {% endif %}
+</body>
+<style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    /* Float four columns side by side */
+    .column {
+      float: left;
+      width: inherit;
+      padding: 10px 50px;
+  }
+    
+    /* Remove extra left and right margins, due to padding in columns */
+    .row {margin: 0 -5px;}
+    
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Style the counter cards */
+    .card {
+        box-shadow: 1px 10px 20px 10px rgba(142, 146, 148, 0.8);
+        width: 400px;
+        padding: 16px;
+        text-align: left;
+        background-color: #e3e6ca;
+        border-radius: 10px;
+  }
+    #btn {
+        color: rgb(0, 0, 0);
+        font-weight: 900;
+        background: none;
+        border: solid green 2px;
+        border-radius: 10px;
+        width: 120px;
+        height: 40px;
+    }
+    #btn:hover {
+        
+        color: rgb(0, 0, 0);
+        font-weight: 900;
+        background: rgb(26, 230, 26);
+        border: solid rgb(26, 230, 26);
+        border-radius: 20px;
+        width: 120px;
+        height: 40px;
+    }
+    
+    /* Responsive columns - one column layout (vertical) on small screens */
+    
+  </style>
+</html>

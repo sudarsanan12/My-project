@@ -1,0 +1,12 @@
+<body>
+        <p>{{ message }}</p>
+        <form action="login" method="post">
+            {% csrf_token %}
+            <h1>User Login</h1>
+            {{ form.as_p }}
+            
+            <button type="submit" style="background-color: rgb(47, 255, 92); border-radius: 5px; border: 2px solid rgb(243, 253, 105); box-shadow: 2px 2px 5px;" >Submit</button>
+        </form>
+        Not registered?<a href="register">  register here...!</a>
+        
+</body> 

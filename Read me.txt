@@ -1,0 +1,12 @@
+super user 
+username : admin
+password : password
+
+other users
+user1
+username : sudarsanan
+password :sudu@123
+
+user2
+username : sudu
+password :sudu@123
