@@ -27,13 +27,11 @@ SECRET_KEY = 'django-insecure-i3v7h%#dtmdz6zo#9n31!%winz%dl^8ve+t8vnpy0!)u7c*0$s
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-<<<<<<< HEAD
-=======
+
 
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:8000'
 ]
->>>>>>> f05246a (	modified:   social_media/__pycache__/settings.cpython-310.pyc)
 
 
 # Application definition
